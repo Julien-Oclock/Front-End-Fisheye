@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "sass": "^1.53.0"
+  },
+  "scripts": {
+    "sass": "sass --watch ./assets/sass/styles.scss:./assets/css/styles.css --style compressed"
+  },
+  "name": "sass-watch",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Julien-Oclock/Front-End-Fisheye.git",
+  "author": "julien Levieux <julien.levieux@drotek.com>",
+  "license": "MIT"
+}

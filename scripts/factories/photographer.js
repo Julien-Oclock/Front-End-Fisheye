@@ -1,8 +1,6 @@
 import photographerTemplate from "../template/photographer.js";
+
 function photographerFactory(data) {
-
-    //const { id, name, portrait, city, country, tagline, price } = data;
-
 
     const HTMLContent = photographerTemplate(data)
 

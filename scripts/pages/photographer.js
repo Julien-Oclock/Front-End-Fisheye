@@ -1,1 +1,8 @@
-//Mettre le code JavaScript lié à la page photographer.html
+
+//get photographer id with URL parameter
+function getphotographerId() {
+    return new URL(window.location.href).searchParams.get('id');
+  }
+
+
+
