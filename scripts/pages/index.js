@@ -9,11 +9,11 @@ async function getPhotographers() {
             console.table(photographers)
         })
         .then(() => {displayData(photographers)})
-        return ({photographers})
+        return {photographers}
 }
 async function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer_section");
-    console.log(photographers);
+    //console.log(photographers);
     photographers.forEach((photographer) => {
         const photographerModel = photographerFactory(photographer);
         const userCardDOM = photographerModel.getUserCardDOM();
