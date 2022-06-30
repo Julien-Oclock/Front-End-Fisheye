@@ -1,0 +1,34 @@
+@import './settings';
+
+.photograph-header{
+    display: flex;
+    align-items: center;
+}
+
+.photograph-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.photographer-details{
+    margin-left: 50px;
+
+    &__name{
+        font-size: 2.5rem;
+        color : $orange; 
+    }
+
+    &__location{
+        font-size: 1.5rem;
+        color : $orange
+    }
+
+    &__tagline{
+        color : $darkgrey
+    }
+}
+
+.photographer-picture{
+    margin-right: 50px;
+}
