@@ -31,4 +31,33 @@
 
 .photographer-picture{
     margin-right: 50px;
+
+    &__img{
+        height: 200px;
+        width: 200px;
+        border-radius:50%;
+        text-align: center;
+        object-fit: cover;
+        filter: drop-shadow(0 0.5rem 0.35rem $darkgrey);
+    }
+}
+
+.card{
+    position: fixed;
+    bottom : 0;
+    right: 30px;
+    background-color: $orange;
+    color: black;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    width: 278px;
+    justify-content: space-between;
+
+    &__price{
+        padding-right: 30px;
+    }
+    &__likes{
+        padding-left: 30px;
+    }
 }
