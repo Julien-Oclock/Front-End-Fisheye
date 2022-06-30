@@ -74,3 +74,15 @@ form input {
     border: none;
     border-radius: 5px;
 }
+
+.photograph-header{
+    display: flex;
+    align-items: center;
+}
+
+.photograph-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}

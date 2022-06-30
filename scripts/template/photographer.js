@@ -8,7 +8,7 @@ export default function photographerTemplate(data){
                 <img class="photographer__img" src=${picture} alt="portrait du photographe ${data.name}">
                 <h2 class="photographer__name">${data.name}</h2>   
                 <div id="${data.name}" class="photographer__data-container" role="informations du photographe ${data.name}">
-                    <span aria-describedby="${data.name}" class="photographer__location">${data.city}, ${data.country}</span>
+                    <span aria-describedby="${data._name}" class="photographer__location">${data.city}, ${data.country}</span>
                     <span aria-describedby="${data.name}" class="photographer__tagline">${data.tagline}</span>
                     <span aria-describedby="${data.name}" class="photographer__price">${data.price} /jour</span>
                 </div>

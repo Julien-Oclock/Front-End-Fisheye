@@ -1,5 +1,5 @@
 import photographerFactory from "../factories/photographer.js";
-
+import PhotographerModel from "../models/Photographer.js";
 
 async function getPhotographers() {
     let photographers = []
@@ -7,16 +7,15 @@ async function getPhotographers() {
         .then(res => res.json())
         .then(data => {
             photographers = data.photographers;
-            console.table(photographers)
         })
         .then(() => {displayData(photographers)})
         return {photographers}
 }
 async function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer");
-    //console.log(photographers);
     photographers.forEach((photographer) => {
-        const photographerCard = photographerFactory(photographer);
+        const photographerModel = new PhotographerModel(photographer)
+        const photographerCard = photographerFactory(photographerModel);
         const userCardDOM = photographerCard.getUserCardDOM();
         photographersSection.appendChild(userCardDOM);
     });

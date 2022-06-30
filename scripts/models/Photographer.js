@@ -1,13 +1,19 @@
 export default class Photographer {
 
     constructor(data){
+        this._id = data.id;
         this._name = data.name;
         this._city = data.city;
         this._country = data.country;
         this._tagline = data.tagline;
-        this._portait = data.portrait;
+        this._price = data.price
+        this._portrait = data.portrait;
         this._path = `./assets/photographers/${this._portrait}`;
 
+    }
+
+    get id() {
+        return this._id;
     }
 
     get name() {
@@ -26,11 +32,15 @@ export default class Photographer {
         return this._tagline;
     }
 
+    get price() {
+        return this._price;
+    }
+
     get portrait() {
         return this._portrait;
     }
 
-    get pathPortrait() {
-        return this._pathPortrait;
+    get path() {
+        return this._path;
     }
 }
