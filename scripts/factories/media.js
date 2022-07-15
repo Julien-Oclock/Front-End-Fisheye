@@ -1,9 +1,9 @@
 
 import photoTemplate from '../template/photo.js'
 
-function photoFactory(data) {
+function photoFactory(data, photographer) {
     
-        const HTMLContent = photoTemplate(data)
+        const HTMLContent = photoTemplate(data, photographer)
     
         function getMediaDOM() {
             const container = document.createElement('div')
