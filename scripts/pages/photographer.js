@@ -3,7 +3,8 @@ import PhotographerModel from "../models/Photographer.js";
 import mediaFactory from '../factories/media.js';
 import Images from '../models/Images.js';
 import Video from '../models/Video.js';
-import modal from '../template/modal.js';
+//import modal from '../template/modal.js';
+
 
 //get photographer id with URL parameter
 function getPhotographerId() {
@@ -60,22 +61,28 @@ function displayMediaData(medias, photographe){
   })
 }
 
-function displayModal (photographer){
-  const template = modal(photographer)
-  const modalContainer = document.getElementById("contact_modal");
-  modalContainer.innerHTML = template;
+function displayModalData(photographer){
+ 
+  const modalTitle = document.querySelector(".modal__title");
+  const firstName = photographer.name.split(' ')[0];
+  console.log(firstName)
+  modalTitle.textContent= `Contactez moi ${firstName}`;
 }
 
 async function init() {
   const id = await getPhotographerId();
   const photographe = await getPhotographerData(id);
-  displayPhotographerData(photographe);
+  await displayPhotographerData(photographe);
   const medias = await getPhotographerMedia(id)
-  console.log('photo ', medias);
   await displayMediaData(medias, photographe.name);
-  displayModal(photographe);
+  displayModalData(photographe);
+
+  
 }
 
 init()
+
+
+
 
 
