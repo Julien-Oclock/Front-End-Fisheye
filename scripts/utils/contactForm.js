@@ -57,7 +57,6 @@ const handleFirstnameInput = (event) =>{
     if (!validName(event.target.value)){
         firstName.style.border = '3px solid #fe142f';
         document.querySelector('#firstname_error').innerHTML = errorMessage.name;
-        console.log('false')
     }else {
         firstName.style.border = 'none';
         document.querySelector('#firstname_error').innerHTML = "";
@@ -68,7 +67,6 @@ const handleLastnameInput = (event) =>{
     if (!validName(event.target.value)) {
         lastName.style.border = '3px solid #fe142f';
         document.querySelector('#lastname_error').innerHTML = errorMessage.name;
-        console.log('false')
     } else {
         lastName.style.border = 'none';
         document.querySelector('#lastname_error').innerHTML = "";
@@ -95,7 +93,6 @@ const handleMessageInput = (event) => {
     }
 }
 
-console.log(firstName)
 
 firstName.addEventListener('change', handleFirstnameInput);
 lastName.addEventListener('change', handleLastnameInput);
@@ -112,10 +109,11 @@ const validForm = (event) => {
         message: message.value
     }
     if (validName(firstName.value) && validName(lastName.value) && validEmail(email.value) && checkMessage(message.value)) {
-        console.log(messageObjet)
+         console.log(messageObjet)
+        closeModal()
         return messageObjet;
     } else {
-        console.log("invalid form")
+         console.log("invalid form")
         return false
         
     }
