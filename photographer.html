@@ -1,56 +1,62 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="./assets/css/styles.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="./assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header class="navbar">
-      <a href="/index.html" aria-label="Retour à la page d'accueil Fisheye">
-        <img src="assets/images/logo.png" class="logo" alt="fisheyes logo"/>
-      </a>
-    </header>
-    <main id="main">
-      <section aria-label="information du photographe" class="photograph-header">
-      </section>
-      <section class="media">
-        
-      </section>
-      <section class="card" aria-label=" tarif du photographe à la journée et nombres de like">
-        <p aria_label="nombres de likes" class="card__likes">
-            <span class="card__likes-value"></span>
-            <i class="fa-solid fa-heart"></i>
-        </p>
-        <p aria-label="prix à la journée" class="card__price"></p>
+
+<head>
+  <link href="./assets/css/styles.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="./assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <title>Fisheye - photographe </title>
+</head>
+
+<body class="body" aria-hidden="false">
+  <header class="navbar">
+    <a href="/index.html" aria-label="Retour à la page d'accueil Fisheye">
+      <img src="assets/images/logo.png" class="logo" alt="fisheyes logo" />
+    </a>
+  </header>
+  <main id="main">
+    <section aria-label="information du photographe" class="photograph-header">
     </section>
-    </main>
-    <div class="modal" id="contact_modal" aria-hidden="true" role="dialog" aria-describedby="modalTitle">
-      <div class="modal__content">
-        <span onClick="closeModal()" id="close_modal" class="modal__close">&times;</span>
-        <h2 class="modal__title"></h2>
-        <form method="post">
-            <label class="modal__label" for="firstname">Prénom</label>
-            <span class="modal__error" id="firstname_error"></span>
-            <input class="modal__input" type="text" id="firstname" name="firstname" placeholder="Votre Prénom" required>
-            <label class="modal__label" for="lastname">Nom</label>
-            <span class="modal__error" id="lastname_error"></span>
-            <input class="modal__input" type="text" id="lastname" name="lastname" placeholder="Votre nom" required>
-            <label class="modal__label" for="email">Email</label>
-            <span class="modal__error" id="email_error"></span>
-            <input class="modal__input" type="email" id="email" name="email" placeholder="Votre email" required>
-            <label class="modal__label" for="message">Message</label>
-            <span class="modal__error" id="message_error"></span>
-            <textarea class="modal__text-area" id="message" name="message" placeholder="Votre message" required></textarea>
-            <input onclick="validForm(event)" class="modal__submit" type="submit" value="Envoyer">
-        </form>
-    </div> 
-		</div>
-    
-    <script src="https://kit.fontawesome.com/4ad786c4ba.js" crossorigin="anonymous"></script>
-    <script type="module" src="/scripts/pages/photographer.js"defer></script>
-    <script src="/scripts/utils/contactForm.js" defer></script>
-  </body>
+    <section class="media">
+
+    </section>
+    <section class="card" aria-label=" tarif du photographe à la journée et nombres de like">
+      <p aria_label="nombres de likes" class="card__likes">
+        <span class="card__likes-value"></span>
+        <i class="fa-solid fa-heart"></i>
+      </p>
+      <p aria-label="prix à la journée" class="card__price"></p>
+    </section>
+  </main>
+  <div class="modal" id="contact_modal" aria-hidden="true" role="dialog" aria-describedby="modalTitle">
+    <div class="modal__content">
+      <span onClick="closeModal()" id="close_modal" class="modal__close">&times;</span>
+      <h2 class="modal__title"></h2>
+      <form method="post">
+        <label class="modal__label" for="firstname">Prénom</label>
+        <span class="modal__error" id="firstname_error"></span>
+        <input class="modal__input" type="text" id="firstname" name="firstname" placeholder="Votre Prénom" autofocus
+          required>
+        <label class="modal__label" for="lastname">Nom</label>
+        <span class="modal__error" id="lastname_error"></span>
+        <input class="modal__input" type="text" id="lastname" name="lastname" placeholder="Votre nom" required>
+        <label class="modal__label" for="email">Email</label>
+        <span class="modal__error" id="email_error"></span>
+        <input class="modal__input" type="email" id="email" name="email" placeholder="Votre email" required>
+        <label class="modal__label" for="message">Message</label>
+        <span class="modal__error" id="message_error"></span>
+        <textarea class="modal__text-area" id="message" name="message" placeholder="Votre message" required></textarea>
+        <input onclick="validForm(event)" class="modal__submit" type="submit" value="Envoyer">
+      </form>
+    </div>
+  </div>
+
+
+  <script src="https://kit.fontawesome.com/4ad786c4ba.js" crossorigin="anonymous"></script>
+  <script type="module" src="/scripts/pages/photographer.js" defer></script>
+  <script src="/scripts/utils/contactForm.js" defer></script>
+  <script src="/scripts/utils/lightbox.js" defer></script>
+</body>
+
 </html>

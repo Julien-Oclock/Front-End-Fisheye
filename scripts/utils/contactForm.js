@@ -4,6 +4,7 @@ const lastName = document.getElementById("lastname");
 const email = document.getElementById("email");
 const message = document.getElementById("message");
 const submit = document.getElementsByClassName("modal__submit")
+const body = document.querySelector('body');
 
 const regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
@@ -17,11 +18,15 @@ const errorMessage = {
 function displayModal() {
     const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
+    modal.ariaHidden = "false";
+    body.ariaHidden = "true";
 }
 
 function closeModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
+    modal.ariaHidden = "true";
+    body.ariaHidden = "false";
 }
 /****
  * ************************************************************************************************

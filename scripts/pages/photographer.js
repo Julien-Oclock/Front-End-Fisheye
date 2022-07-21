@@ -45,22 +45,27 @@ function displayPhotographerData(data) {
 
 // dsiplay media data to the DOM
 function displayMediaData(medias, photographe) {
-  const mediasSection = document.querySelector(".media");
-  let totalLike = 0
-  medias.forEach((media) => {
-    if (media.image) {
-      const photoModel = new Images(media);
+  const mediasSection = document.querySelector(".media");// conteneur pour afficher tout les médias
+  let totalLike = 0 // compteur du nombre Total de likes
+  medias.forEach((media, index) => {
+    if (media.image) {// on vérifie le type de media reçu (image ou vidéo)
+      const photoModel = new Images(media)
       const photoItem = mediaFactory(photoModel, photographe);
       const getMediaDOM = photoItem.getMediaDOM();
       mediasSection.appendChild(getMediaDOM);
       totalLike += media.likes;
+      getMediaDOM.addEventListener('click', () => {
+        console.log(media, index)
+      })
     } else if (media.video) {
       const videoModel = new Video(media);
       const videoItem = mediaFactory(videoModel, photographe);
       const getMediaDOM = videoItem.getMediaDOM();
       mediasSection.appendChild(getMediaDOM);
       totalLike += media.likes
-
+      getMediaDOM.addEventListener('click', () => {
+        console.log(media, index)
+      })
     }
   })
   const like = document.querySelector(".card__likes-value");
@@ -69,20 +74,21 @@ function displayMediaData(medias, photographe) {
   price.textContent = photographe.price + '€/jour';
 }
 
+// dispay data in contactform modal
 function displayModalData(photographer) {
-
   const modalTitle = document.querySelector(".modal__title");
   const firstName = photographer.name.split(' ')[0];
   modalTitle.textContent = `Contactez moi ${firstName}`;
+
 }
 
 async function init() {
   const id = await getPhotographerId();
   const photographe = await getPhotographerData(id);
   await displayPhotographerData(photographe);
-  const medias = await getPhotographerMedia(id)
+  const medias = await getPhotographerMedia(id);
   await displayMediaData(medias, photographe);
-  displayModalData(photographe);
+  await displayModalData(photographe);
 
 
 }
