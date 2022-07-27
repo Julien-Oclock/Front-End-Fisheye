@@ -9,19 +9,33 @@
   <title>Fisheye - photographe </title>
 </head>
 
-<body class="body" aria-hidden="false">
+<body class="body">
   <header class="navbar">
     <a href="/index.html" aria-label="Retour à la page d'accueil Fisheye">
       <img src="assets/images/logo.png" class="logo" alt="fisheyes logo" />
     </a>
   </header>
+
+  <!---------------------- INFO PHOTOGRAPHE ------------------------------------------------->
   <main id="main">
     <section aria-label="information du photographe" class="photograph-header">
     </section>
-    <section class="media">
 
+    <!---------------------- TRI DES MEDIA ------------------------------------------->
+    <div class="media-sort">
+      <label class="media-sort__label" for="sort-select">Trier par</label>
+      <select class="media-sort__select" name="order by" id="sort-select">
+        <option class="media-sort__option" id="popularity">Popularité</option>
+        <option class="media-sort__option" id="date">Date</option>
+        <option class="media-sort__option" id="title">Titre</option>
+      </select>
+    </div>
+
+
+    <!---------------------- PHOTO SECTION ------------------------------------------->
+    <section class="media">
     </section>
-    <section class="card" aria-label=" tarif du photographe à la journée et nombres de like">
+    <section class="card" aria-label="tarif du photographe à la journée et nombres de like">
       <p aria_label="nombres de likes" class="card__likes">
         <span class="card__likes-value"></span>
         <i class="fa-solid fa-heart"></i>
@@ -29,6 +43,8 @@
       <p aria-label="prix à la journée" class="card__price"></p>
     </section>
   </main>
+
+  <!---------------------- MODAL DE CONTACT------------------------------------------------->
   <div class="modal" id="contact_modal" aria-hidden="true" role="dialog" aria-describedby="modalTitle">
     <div class="modal__content">
       <span onClick="closeModal()" id="close_modal" class="modal__close">&times;</span>
@@ -52,11 +68,27 @@
     </div>
   </div>
 
+  <!---------------------- LIGHTBOX ------------------------------------------------>
+  <div class="lightbox">
+    <div class="lightbox__wrapper">
+      <button class="lightbox__prev" onclick="prevImage()">
+        <img src="./assets/icons/chevron.svg" alt="">
+      </button>
+      <button class="lightbox__next" onclick="nextImage()">
+        <img src="./assets/icons/chevron.svg" alt="">
+      </button>
+      <button class="lightbox__close" onclick="closeLightbox()">X</button>
+      <div class="lightbox__container">
+      </div>
+    </div>
+  </div>
+
 
   <script src="https://kit.fontawesome.com/4ad786c4ba.js" crossorigin="anonymous"></script>
-  <script type="module" src="/scripts/pages/photographer.js" defer></script>
-  <script src="/scripts/utils/contactForm.js" defer></script>
-  <script src="/scripts/utils/lightbox.js" defer></script>
+  <script type="module" src="/scripts/pages/photographer.js"></script>
+  <script src="/scripts/utils/contactForm.js"></script>
+  <script src="/scripts/utils/lightbox.js"></script>
+
 </body>
 
 </html>

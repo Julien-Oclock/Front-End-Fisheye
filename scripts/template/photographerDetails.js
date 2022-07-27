@@ -1,4 +1,4 @@
-export default function photographerDetailsTemplate (data) {
+export default function photographerDetailsTemplate(data) {
     return (
         `
             <section class="photographer-details" role="informations du photographe ${data.name}">
@@ -7,7 +7,7 @@ export default function photographerDetailsTemplate (data) {
                 <p class="photographer-details__tagline">${data.tagline}</p>
             </section>
             <section class="contact">
-                <button role="bouton" aria-label="ouvrir le formulaire de contact" class="contact_button" onclick="displayModal()">Contactez-moi</button>
+                <button role="bouton" aria-label="ouvrir le formulaire de contact" id="contact" class="contact_button" onclick="displayModal()">Contactez-moi</button>
             </section>
             <section class="photographer-picture" aria-label="photo de profil du photographe ${data.name}">
                 <img class="photographer-picture__img" src="${data.path}" alt="portrait du photographe ${data.name}">

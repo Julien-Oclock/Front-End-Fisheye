@@ -1,16 +1,16 @@
 
-import photoTemplate from '../template/photo.js'
+import photoTemplate from '../template/media.js'
 
 function photoFactory(data, photographer) {
-    
-        const HTMLContent = photoTemplate(data, photographer)
-    
-        function getMediaDOM() {
-            const container = document.createElement('div')
-            container.innerHTML = HTMLContent;
-            return (container);
-        }
-        return { getMediaDOM }
+
+    const HTMLContent = photoTemplate(data, photographer)
+
+    function getMediaDOM() {
+        const container = document.createElement('div')
+        container.innerHTML = HTMLContent;
+        return (container);
+    }
+    return { getMediaDOM }
 }
 
 export default photoFactory;

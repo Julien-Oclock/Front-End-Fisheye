@@ -1,50 +1,51 @@
 @import './settings';
 
-.photograph-header{
+.photograph-header {
     display: flex;
     align-items: center;
 }
 
-.photograph-container{
+.photograph-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
 }
-.photographer-details{
+
+.photographer-details {
     margin-left: 50px;
 
-    &__name{
+    &__name {
         font-size: 2.5rem;
-        color : $orange; 
+        color: $orange;
     }
 
-    &__location{
+    &__location {
         font-size: 1.5rem;
-        color : $orange
+        color: $orange
     }
 
-    &__tagline{
-        color : $darkgrey
+    &__tagline {
+        color: $darkgrey
     }
 }
 
-.photographer-picture{
+.photographer-picture {
     margin-right: 50px;
 
-    &__img{
+    &__img {
         height: 200px;
         width: 200px;
-        border-radius:50%;
+        border-radius: 50%;
         text-align: center;
         object-fit: cover;
         filter: drop-shadow(0 0.5rem 0.35rem $darkgrey);
     }
 }
 
-.card{
+.card {
     position: fixed;
-    bottom : 0;
+    bottom: 0;
     right: 30px;
     background-color: #DB8876;
     color: black;
@@ -54,55 +55,56 @@
     width: 278px;
     justify-content: space-between;
 
-    &__price{
+    &__price {
         padding-right: 30px;
     }
-    &__likes{
+
+    &__likes {
         padding-left: 30px;
     }
 }
 
-.media{
+.media {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     width: 100%;
 
-    &__container{
+    &__container {
         margin: 50px;
     }
 
-    &__item{
+    &__item {
         width: 350px;
         height: 350px;
         object-fit: cover;
     }
 
-    &__info{
+    &__info {
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
 }
 
-.modal{
+.modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
     display: none;
     justify-content: center;
     align-items: center;
 
-    &__content{
+    &__content {
         position: relative;
         margin: 130px auto;
         width: 500px;
-        height:fit-content;
+        height: fit-content;
         background-color: #DB8876;
         border-radius: 5px;
         display: flex;
@@ -111,18 +113,21 @@
         align-items: center;
         padding: 30px;
     }
-    &__close{
+
+    &__close {
         position: absolute;
         top: 0;
         right: 10px;
         font-size: 3rem;
         color: white;
     }
-    &__label{
+
+    &__label {
         font-size: 1.4rem;
-        color:black;
+        color: black;
     }
-    &__input{
+
+    &__input {
         width: 100%;
         height: 40px;
         border-radius: 5px;
@@ -130,10 +135,12 @@
         font-size: 1.2rem;
         color: black;
     }
-    &__label{
-        padding : 5px;
+
+    &__label {
+        padding: 5px;
     }
-    &__text-area{
+
+    &__text-area {
         width: 100%;
         height: 150px;
         padding: 7px;
@@ -141,10 +148,126 @@
         border-radius: 5px;
     }
 
-    &__submit{
-        width : 25%;
+    &__submit {
+        width: 25%;
         background-color: $orange;
         margin-top: 20px;
         margin-bottom: 40px;
+    }
+}
+
+.lightbox {
+    display: none;
+}
+
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255);
+    z-index: 10;
+    overflow: auto;
+    animation: lightboxIn 0.5s;
+    height: 100vh;
+
+    &__wrapper{
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+    &__next,
+    &__prev {
+        background-color: white;
+        border: none;
+        width: 100px;
+        height: 100%;
+        position: fixed;
+        top: 0%;
+        margin-top: -14px;
+        z-index: 11;
+        opacity: .5;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color : $red
+    }
+    &__prev{
+        transform: rotate(180deg);
+    }
+    &__next {
+        right: auto;
+        right: 0;
+    }
+
+    &__close {
+        width: 20px;
+        height: 20px;
+        border: none;
+        position: fixed;
+        top: 50px;
+        right: 120px;
+        color : $red;
+        cursor: pointer;
+        font-size: 30px;
+        background-color: white;
+    }
+
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin-left: 50px;
+        margin-right: 50px;
+
+    }
+
+    &__container img, &__container video {
+        max-width: 80%;
+        height: 80%;
+        animation: lightboxIn 0.5s;
+
+    }
+
+}
+
+.media-sort {
+    margin: 30px 150px;
+
+    &__label {
+        font-size: 18px;
+        font-weight: 700;
+        margin-right: 10px;
+    }
+
+    &__select {
+        font-family: "DM Sans", sans-serif;
+        background-color: $red;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 8px;
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 50px;
+    }
+
+    &__option {
+        background-color: $red;
+        color: white;
+        font-size: 18px;
+        font-weight: 700;
+        border-radius: 5px;
+    }
+}
+
+@keyframes ligthboxIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
     }
 }

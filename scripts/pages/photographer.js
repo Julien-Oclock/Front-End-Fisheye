@@ -45,42 +45,49 @@ function displayPhotographerData(data) {
 
 // dsiplay media data to the DOM
 function displayMediaData(medias, photographe) {
-  const mediasSection = document.querySelector(".media");// conteneur pour afficher tout les médias
-  let totalLike = 0 // compteur du nombre Total de likes
+
+  // conteneur pour afficher tout les médias
+  const mediasSection = document.querySelector(".media");
+
+  // compteur du nombre Total de likes
+  let totalLike = 0
+
+
   medias.forEach((media, index) => {
-    if (media.image) {// on vérifie le type de media reçu (image ou vidéo)
+    // on vérifie le type de media reçu (image ou vidéo)
+
+    // si c'est une image
+    if (media.image) {
       const photoModel = new Images(media)
       const photoItem = mediaFactory(photoModel, photographe);
       const getMediaDOM = photoItem.getMediaDOM();
       mediasSection.appendChild(getMediaDOM);
       totalLike += media.likes;
-      getMediaDOM.addEventListener('click', () => {
-        console.log(media, index)
-      })
+
+      // si c'est une vidéo
     } else if (media.video) {
       const videoModel = new Video(media);
       const videoItem = mediaFactory(videoModel, photographe);
       const getMediaDOM = videoItem.getMediaDOM();
       mediasSection.appendChild(getMediaDOM);
       totalLike += media.likes
-      getMediaDOM.addEventListener('click', () => {
-        console.log(media, index)
-      })
     }
   })
+
   const like = document.querySelector(".card__likes-value");
   like.textContent = totalLike;
   const price = document.querySelector(".card__price");
   price.textContent = photographe.price + '€/jour';
 }
 
-// dispay data in contactform modal
+// display data in contactform modal
 function displayModalData(photographer) {
   const modalTitle = document.querySelector(".modal__title");
   const firstName = photographer.name.split(' ')[0];
   modalTitle.textContent = `Contactez moi ${firstName}`;
-
 }
+
+
 
 async function init() {
   const id = await getPhotographerId();
