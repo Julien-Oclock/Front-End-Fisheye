@@ -151,28 +151,6 @@ const sortMedia = (medias, photographe) => {
     }
   })
 
-  popularity.addEventListener("click", (e) => {
-    e.preventDefault()
-    medias.sort(OrderByLikes);
-    document.querySelector(".media").innerHTML = "";
-    displayMediaData(medias, photographe);
-  })
-
-  date.addEventListener("click", (e) => {
-    e.preventDefault();
-    console.log("date");
-    document.querySelector(".media").innerHTML = "";
-    medias.sort(OrderByDate);
-    displayMediaData(medias, photographe);
-  })
-
-  title.addEventListener("click", () => {
-    console.log("title");
-    medias.sort(OrderByTitle);
-    document.querySelector(".media").innerHTML = "";
-    displayMediaData(medias, photographe);
-  })
-
 }
 
 const likeshandler = () => {
@@ -197,6 +175,24 @@ const likeshandler = () => {
     })
 
 
+    like.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        if(!liked) {
+          liked=true
+          totalLike++;
+          const sumOfLikes = document.querySelector(".card__likes-value");
+          sumOfLikes.textContent = parseInt(sumOfLikes.textContent) + 1;
+          like.parentElement.querySelector(".media__count").textContent = parseInt(like.parentElement.querySelector(".media__count").textContent) + 1;
+        } else {
+          liked=false;
+          totalLike--;
+          const sumOfLikes = document.querySelector(".card__likes-value");
+          sumOfLikes.textContent = parseInt(sumOfLikes.textContent) - 1;
+          like.parentElement.querySelector(".media__count").textContent = parseInt(like.parentElement.querySelector(".media__count").textContent) - 1;
+        }
+      }
+    })
   })
 }
 

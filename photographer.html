@@ -12,7 +12,7 @@
 <body class="body">
   <header class="navbar">
     <a href="/index.html" aria-label="Retour à la page d'accueil Fisheye">
-      <img src="assets/images/logo.png" class="logo" alt="fisheyes logo" />
+      <img src="assets/images/logo.png" class="logo" alt="fisheyes logo"  />
     </a>
   </header>
 
@@ -22,9 +22,9 @@
     </section>
 
     <!---------------------- TRI DES MEDIAS ------------------------------------------->
-    <div class="media-sort">
-      <label class="media-sort__label" for="sort-select">Trier par</label>
-      <select class="media-sort__select" name="order by" id="sort-select">
+    <div class="media-sort" >
+      <label class="media-sort__label" for="sort-select" >Trier par</label>
+      <select class="media-sort__select" name="order by" id="sort-select" tabindex="0"  >
         <option class="media-sort__option" id="popularity">Popularité</option>
         <option class="media-sort__option" id="date">Date</option>
         <option class="media-sort__option" id="title">Titre</option>
@@ -35,7 +35,7 @@
     <!---------------------- PHOTO SECTION ------------------------------------------->
     <section class="media">
     </section>
-    <section class="card" aria-label="tarif du photographe à la journée et nombres de like">
+    <section class="card" aria-label="tarif du photographe à la journée et nombres de like"*>
       <p aria_label="nombres de likes" class="card__likes">
         <span class="card__likes-value"></span>
         <i class="fa-solid fa-heart"></i>
@@ -69,7 +69,7 @@
   </div>
 
   <!---------------------- LIGHTBOX ------------------------------------------------>
-  <div class="lightbox">
+  <div class="lightbox" aria-hidden="true">
     <div class="lightbox__wrapper">
       <button class="lightbox__prev" onclick="prevImage()">
         <img src="./assets/icons/chevron.svg" alt="">

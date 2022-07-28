@@ -92,7 +92,34 @@ const prevImage = () => {
 setTimeout(() => {
     const images = document.querySelectorAll(".media__item");
     images.forEach(image => {
-        image.addEventListener("click", openLightbox);
+        image.addEventListener("click", openLightbox);      
+        image.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+                openLightbox(e);
+            }
+        })
         }
     )
 }, 1000)
+
+window.addEventListener("keydown", (e) => {
+    if (
+      lightbox.getAttribute("aria-hidden") == "false"
+    ) {
+      e.preventDefault();
+      switch (e.key) {
+        case "ArrowRight":
+          nextImage();
+          break;
+        case "ArrowLeft":
+          prevImage();
+          break;
+        case "Escape":
+          closeLightbox();
+          break;
+  
+        default:
+          return;
+      }
+    }
+  });
