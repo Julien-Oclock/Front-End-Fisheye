@@ -14,7 +14,7 @@ function getPhotographerId() {
   return new URL(window.location.href).searchParams.get('id');
 }
 // fecth data from JSON file
-async function getPhotographerData(id) {
+const getPhotographerData = async(id) => {
   let foundedPhotographer
   await fetch(`../data/photographers.json`)
     .then(res => res.json())
@@ -26,7 +26,7 @@ async function getPhotographerData(id) {
 }
 
 // fetch data of a specific photographer from JSON file
-async function getPhotographerMedia(photographerId) {
+const  getPhotographerMedia = async (photographerId) => {
   let foundedMedia;
   await fetch(`../data/photographers.json`)
     .then(res => res.json())
@@ -38,7 +38,7 @@ async function getPhotographerMedia(photographerId) {
 }
 
 // display photographer data to the DOM
-function displayPhotographerData(data) {
+const  displayPhotographerData = (data) =>{
   const photographersSection = document.querySelector(".photograph-header");
   const photographerModel = new PhotographerModel(data);
   const photographerCard = photographerDetailsFactory(photographerModel);
@@ -123,12 +123,36 @@ const sortMedia = (medias, photographe) => {
   const popularity = document.getElementById("popularity");
   const date = document.getElementById("date");
   const title = document.getElementById("title");
+  const sortOptions = document.querySelector(".media-sort__select");
   console.log(popularity)
   console.log(date)
   console.log(title)
 
-  popularity.addEventListener("click", () => {
-    console.log("popularity");
+  sortOptions.addEventListener("change", (e) => {
+    e.preventDefault();
+    if (e.target.value === "Popularité") {
+        console.log("popularity");
+        document.querySelector(".media").innerHTML = "";
+        medias.sort(OrderByLikes);
+        displayMediaData(medias, photographe);
+    } else if (e.target.value === "Date") {
+        console.log("date");
+        document.querySelector(".media").innerHTML = "";
+        medias.sort(OrderByDate);
+        displayMediaData(medias, photographe);
+    } else if (e.target.value === "Titre") {
+      console.log("title")
+        document.querySelector(".media").innerHTML = "";
+        medias.sort(OrderByTitle);
+        displayMediaData(medias, photographe);
+    }
+    else{
+      alert("erreur : l'option de tri n'existe pas")
+    }
+  })
+
+  popularity.addEventListener("click", (e) => {
+    e.preventDefault()
     medias.sort(OrderByLikes);
     document.querySelector(".media").innerHTML = "";
     displayMediaData(medias, photographe);
@@ -178,7 +202,7 @@ const likeshandler = () => {
 
 
 
-async function init() {
+const init = async () => {
   const id = await getPhotographerId();
   const photographe = await getPhotographerData(id);
   await displayPhotographerData(photographe);
