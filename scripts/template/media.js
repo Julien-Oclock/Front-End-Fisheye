@@ -10,10 +10,10 @@ export default function photo(data, photographe) {
         `}
             <div class="media__info">
                 <span class="media__title">${data._title}</span>
-                <span class="media__likes">
-                    ${data.likes}
+                <div class="media__likes">
+                    <span class="media__count">${data.likes}</span>
                     <img src="./assets/icons/heart.svg" alt="like" class="media__like">
-                </span>
+                </div>
             </div>
         </div>
         `
