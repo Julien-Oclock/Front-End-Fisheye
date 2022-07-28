@@ -79,12 +79,29 @@
         width: 350px;
         height: 350px;
         object-fit: cover;
+        border-radius: 8px;
     }
 
     &__info {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding-top: 12px;
+    }
+    &__title {
+        font-size: 1.3rem;
+        color: $red;
+        font-weight: 600;
+    }
+    &__likes{
+        display: flex;
+       align-items: center;
+        font-size: 20px;
+        color: $red;
+        font-weight: bold;
+    }
+    &__likes img{
+        padding-left: 6px;
     }
 }
 

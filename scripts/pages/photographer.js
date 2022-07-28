@@ -44,7 +44,7 @@ function displayPhotographerData(data) {
 }
 
 // dsiplay media data to the DOM
-function displayMediaData(medias, photographe) {
+const displayMediaData = (medias, photographe) =>{
 
   // conteneur pour afficher tout les médias
   const mediasSection = document.querySelector(".media");
@@ -53,7 +53,7 @@ function displayMediaData(medias, photographe) {
   let totalLike = 0
 
 
-  medias.forEach((media, index) => {
+  medias.forEach((media) => {
     // on vérifie le type de media reçu (image ou vidéo)
 
     // si c'est une image
@@ -81,10 +81,18 @@ function displayMediaData(medias, photographe) {
 }
 
 // display data in contactform modal
-function displayModalData(photographer) {
+const  displayModalData =(photographer) => {
   const modalTitle = document.querySelector(".modal__title");
   const firstName = photographer.name.split(' ')[0];
   modalTitle.textContent = `Contactez moi ${firstName}`;
+}
+
+
+const sortMedia = (medias) => {
+}
+
+const likeshandler = () => {
+  
 }
 
 
