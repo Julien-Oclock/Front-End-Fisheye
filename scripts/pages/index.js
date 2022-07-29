@@ -3,7 +3,7 @@ import PhotographerModel from "../models/Photographer.js";
 
 async function getPhotographers() {
     let photographers = []
-    fetch("../data/photographers.json")
+    fetch("/data/photographers.json")
         .then(res => res.json())
         .then(data => {
             photographers = data.photographers;

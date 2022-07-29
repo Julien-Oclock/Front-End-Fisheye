@@ -4,7 +4,7 @@ const lastName = document.getElementById("lastname");
 const email = document.getElementById("email");
 const message = document.getElementById("message");
 const submit = document.getElementsByClassName("modal__submit")
-const main = document.querySelector('#main');
+let main = document.querySelector('#main');
 
 const regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 

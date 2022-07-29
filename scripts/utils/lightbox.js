@@ -2,7 +2,7 @@
 // DOM ELEMENT
 const lightbox = document.querySelector(".lightbox");
 const header = document.querySelector(".photograph-header");
-const main = document.getElementById("main");
+//let main = document.getElementById("main");
 const imageContainer = document.querySelector(".lightbox__container");
 const nextBtn = document.querySelector(".lightbox__next");
 const prevBtn = document.querySelector(".lightbox__prev");
