@@ -35,49 +35,48 @@
     <!---------------------- PHOTO SECTION ------------------------------------------->
     <section class="media">
     </section>
-    <section class="card" aria-label="tarif du photographe à la journée et nombres de like"*>
-      <p aria_label="nombres de likes" class="card__likes">
+    <section class="card" aria-label="photographer price and popularity">
+      <p aria_label="sum of like" class="card__likes">
         <span class="card__likes-value"></span>
         <i class="fa-solid fa-heart"></i>
       </p>
-      <p aria-label="prix à la journée" class="card__price"></p>
+      <p aria-label="price" class="card__price"></p>
     </section>
   </main>
 
   <!---------------------- MODAL DE CONTACT------------------------------------------------->
-  <div class="modal" id="contact_modal" aria-hidden="true" role="dialog" aria-describedby="modalTitle">
+  <div role="contact-form" class="modal" id="contact_modal" aria-hidden="true" role="dialog" aria-describedby="modalTitle">
     <div class="modal__content">
-      <span onClick="closeModal()" id="close_modal" class="modal__close">&times;</span>
+      <span role="button" aria-label="close modal" onClick="closeModal()" id="close_modal" class="modal__close">&times;</span>
       <h2 class="modal__title"></h2>
       <form method="post">
         <label class="modal__label" for="firstname">Prénom</label>
         <span class="modal__error" id="firstname_error"></span>
-        <input class="modal__input" type="text" id="firstname" name="firstname" placeholder="Votre Prénom" autofocus
-          required>
+        <input class="modal__input" type="text" id="firstname" name="firstname" placeholder="Votre Prénom" required tabindex="0" autofocus>
         <label class="modal__label" for="lastname">Nom</label>
-        <span class="modal__error" id="lastname_error"></span>
-        <input class="modal__input" type="text" id="lastname" name="lastname" placeholder="Votre nom" required>
+        <span role="error-message" class="modal__error" id="lastname_error"></span>
+        <input class="modal__input" type="text" id="lastname" name="lastname" placeholder="Votre nom" required tabindex="0">
         <label class="modal__label" for="email">Email</label>
-        <span class="modal__error" id="email_error"></span>
-        <input class="modal__input" type="email" id="email" name="email" placeholder="Votre email" required>
+        <span role="error-message" class="modal__error" id="email_error"></span>
+        <input class="modal__input" type="email" id="email" name="email" placeholder="Votre email" required tabindex="0">
         <label class="modal__label" for="message">Message</label>
-        <span class="modal__error" id="message_error"></span>
-        <textarea class="modal__text-area" id="message" name="message" placeholder="Votre message" required></textarea>
+        <span role="error-message" class="modal__error" id="message_error"></span>
+        <textarea class="modal__text-area" id="message" name="message" placeholder="Votre message" required tabindex="0"></textarea>
         <input onclick="validForm(event)" class="modal__submit" type="submit" value="Envoyer">
       </form>
     </div>
   </div>
 
   <!---------------------- LIGHTBOX ------------------------------------------------>
-  <div class="lightbox" aria-hidden="true">
+  <div class="lightbox" aria-label="media close view" aria-hidden="true">
     <div class="lightbox__wrapper">
-      <button class="lightbox__prev" onclick="prevImage()">
-        <img src="./assets/icons/chevron.svg" alt="">
+      <button aria-label="previous-image"class="lightbox__prev" onclick="prevImage()">
+        <img src="./assets/icons/chevron.svg" alt="previous button image">
       </button>
-      <button class="lightbox__next" onclick="nextImage()">
-        <img src="./assets/icons/chevron.svg" alt="">
+      <button aria-labal="next image" class="lightbox__next" onclick="nextImage()">
+        <img src="./assets/icons/chevron.svg" alt="next button image">
       </button>
-      <button class="lightbox__close" onclick="closeLightbox()">X</button>
+      <button aria-label="close lightbox" class="lightbox__close" onclick="closeLightbox()">X</button>
       <div class="lightbox__container">
       </div>
     </div>
