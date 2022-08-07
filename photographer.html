@@ -11,18 +11,16 @@
 
 <body class="body">
   <header class="navbar">
-    <a href="/index.html" aria-label="Retour à la page d'accueil Fisheye">
+    <a href="/index.html" aria-label="Retour à la page d'accueil Fisheye" tabindex="0">
       <img src="assets/images/logo.png" class="logo" alt="fisheyes logo"  />
     </a>
   </header>
-
   <!---------------------- INFO PHOTOGRAPHE ------------------------------------------------->
   <main id="main">
-    <section aria-label="information du photographe" class="photograph-header">
+    <section  class="photograph-header">
     </section>
-
     <!---------------------- TRI DES MEDIAS ------------------------------------------->
-    <div class="media-sort" >
+    <div class="media-sort" role="sort-media">
       <label class="media-sort__label" for="sort-select" >Trier par</label>
       <select class="media-sort__select" name="order by" id="sort-select" tabindex="0"  >
         <option class="media-sort__option" id="popularity">Popularité</option>
@@ -30,53 +28,54 @@
         <option class="media-sort__option" id="title">Titre</option>
       </select>
     </div>
-
-
     <!---------------------- PHOTO SECTION ------------------------------------------->
     <section class="media">
     </section>
-    <section class="card" aria-label="photographer price and popularity">
-      <p aria_label="sum of like" class="card__likes">
+    <section class="card" aria-label="photographer price and popularity"  tabindex="0">
+      <p aria_label="nombre de like" class="card__likes">
         <span class="card__likes-value"></span>
         <i class="fa-solid fa-heart"></i>
       </p>
       <p aria-label="price" class="card__price"></p>
     </section>
   </main>
-
   <!---------------------- MODAL DE CONTACT------------------------------------------------->
   <div role="contact-form" class="modal" id="contact_modal" aria-hidden="true" role="dialog" aria-describedby="modalTitle">
     <div class="modal__content">
       <span role="button" aria-label="close modal" onClick="closeModal()" id="close_modal" class="modal__close">&times;</span>
       <h2 class="modal__title"></h2>
       <form method="post">
-        <label class="modal__label" for="firstname">Prénom</label>
+        <!-- Prénom-->
+        <label id="Prénom" class="modal__label" for="firstname">Prénom</label>
         <span class="modal__error" id="firstname_error"></span>
-        <input class="modal__input" type="text" id="firstname" name="firstname" placeholder="Votre Prénom" required tabindex="0" autofocus>
-        <label class="modal__label" for="lastname">Nom</label>
+        <input aria-describedby="Prénom" class="modal__input" type="text" id="firstname" name="firstname" placeholder="Votre Prénom" aria-required="true" required tabindex="0" autofocus>
+        <!--Nom-->
+        <labe id="Nom" class="modal__label" for="lastname">Nom</label>
         <span role="error-message" class="modal__error" id="lastname_error"></span>
-        <input class="modal__input" type="text" id="lastname" name="lastname" placeholder="Votre nom" required tabindex="0">
-        <label class="modal__label" for="email">Email</label>
+        <input aria-describedby="Nom" class="modal__input" type="text" id="lastname" name="lastname" placeholder="Votre nom" aria-required="true" required tabindex="0">
+        <!--Mail-->
+        <label  id="Email" class="modal__label" for="email">Email</label>
         <span role="error-message" class="modal__error" id="email_error"></span>
-        <input class="modal__input" type="email" id="email" name="email" placeholder="Votre email" required tabindex="0">
-        <label class="modal__label" for="message">Message</label>
+        <input aria-describedby="Email" class="modal__input" type="email" id="email" name="email" placeholder="Votre email" aria-required="true" required tabindex="0">
+        <!-- Message-->
+        <label id="Message" class="modal__label" for="message">Message</label>
         <span role="error-message" class="modal__error" id="message_error"></span>
-        <textarea class="modal__text-area" id="message" name="message" placeholder="Votre message" required tabindex="0"></textarea>
-        <input onclick="validForm(event)" class="modal__submit" type="submit" value="Envoyer">
+        <textarea aria-describedby="Message" class="modal__text-area" id="message" name="message" placeholder="Votre message" aria-required="true" required tabindex="0"></textarea>
+        <!-- Submit form-->
+        <input onclick="validForm(event)" aria-label="valider le formulaire" class="modal__submit" type="submit" value="Envoyer">
       </form>
     </div>
   </div>
-
   <!---------------------- LIGHTBOX ------------------------------------------------>
   <div class="lightbox" aria-label="media close view" aria-hidden="true">
     <div class="lightbox__wrapper">
-      <button aria-label="previous-image"class="lightbox__prev" onclick="prevImage()">
-        <img src="./assets/icons/chevron.svg" alt="previous button image">
+      <button aria-label="previous-image"class="lightbox__prev" aria-label="previous image" onclick="prevImage()">
+        <img src="./assets/icons/chevron.svg" alt="previous button">
       </button>
-      <button aria-labal="next image" class="lightbox__next" onclick="nextImage()">
-        <img src="./assets/icons/chevron.svg" alt="next button image">
+      <button aria-labal="next image" class="lightbox__next" aria-label="next image" onclick="nextImage()">
+        <img src="./assets/icons/chevron.svg" alt="next button">
       </button>
-      <button aria-label="close lightbox" class="lightbox__close" onclick="closeLightbox()">X</button>
+      <button aria-label="close lightbox" class="lightbox__close" aria-label="close lightbox"onclick="closeLightbox()">X</button>
       <div class="lightbox__container">
       </div>
     </div>
