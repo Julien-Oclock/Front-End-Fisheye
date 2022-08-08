@@ -28,7 +28,7 @@ const getPhotographerData = async (id) => {
 // fetch data of a specific photographer from JSON file
 const getPhotographerMedia = async (photographerId) => {
   let foundedMedia;
-  await fetch(`../data/photographers.json`)
+  await fetch(`./data/photographers.json`)
     .then(res => res.json())
     .then((data) => {
       const mediaObject = data.media;
