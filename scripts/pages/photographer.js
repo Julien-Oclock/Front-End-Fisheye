@@ -7,7 +7,7 @@ import Video from '../models/Video.js';
 
 // initialisation du compteur de likes
 let totalLike = 0;
-const fectURL = './Front-End-Fisheye/data/photographers.json'
+const fectURL = './data/photographers.json'
 
 //get photographer id with URL parameter
 function getPhotographerId() {
