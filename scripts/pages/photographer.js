@@ -7,7 +7,7 @@ import Video from '../models/Video.js';
 
 // initialisation du compteur de likes
 let totalLike = 0;
-
+const fectURL = './Front-End-Fisheye/data/photographers.json'
 
 //get photographer id with URL parameter
 function getPhotographerId() {
@@ -16,7 +16,7 @@ function getPhotographerId() {
 // fecth data from JSON file
 const getPhotographerData = async (id) => {
   let foundedPhotographer
-  await fetch(`./data/photographers.json`)
+  await fetch(fectURL)
     .then(res => res.json())
     .then((data) => {
       const photographersObject = data.photographers
@@ -28,7 +28,7 @@ const getPhotographerData = async (id) => {
 // fetch data of a specific photographer from JSON file
 const getPhotographerMedia = async (photographerId) => {
   let foundedMedia;
-  await fetch(`./data/photographers.json`)
+  await fetch(fectURL)
     .then(res => res.json())
     .then((data) => {
       const mediaObject = data.media;
