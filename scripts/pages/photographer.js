@@ -14,9 +14,9 @@ function getPhotographerId() {
   return new URL(window.location.href).searchParams.get('id');
 }
 // fecth data from JSON file
-const getPhotographerData = async(id) => {
+const getPhotographerData = async (id) => {
   let foundedPhotographer
-  await fetch(`../data/photographers.json`)
+  await fetch(`./data/photographers.json`)
     .then(res => res.json())
     .then((data) => {
       const photographersObject = data.photographers
@@ -26,7 +26,7 @@ const getPhotographerData = async(id) => {
 }
 
 // fetch data of a specific photographer from JSON file
-const  getPhotographerMedia = async (photographerId) => {
+const getPhotographerMedia = async (photographerId) => {
   let foundedMedia;
   await fetch(`../data/photographers.json`)
     .then(res => res.json())
@@ -38,7 +38,7 @@ const  getPhotographerMedia = async (photographerId) => {
 }
 
 // display photographer data to the DOM
-const  displayPhotographerData = (data) =>{
+const displayPhotographerData = (data) => {
   const photographersSection = document.querySelector(".photograph-header");
   const photographerModel = new PhotographerModel(data);
   const photographerCard = photographerDetailsFactory(photographerModel);
@@ -47,7 +47,7 @@ const  displayPhotographerData = (data) =>{
 }
 
 // dsiplay media data to the DOM
-const displayMediaData = (medias, photographe) =>{
+const displayMediaData = (medias, photographe) => {
 
   // conteneur pour afficher tout les médias
   const mediasSection = document.querySelector(".media");
@@ -81,7 +81,7 @@ const displayMediaData = (medias, photographe) =>{
 }
 
 // display data in contactform modal
-const  displayModalData =(photographer) => {
+const displayModalData = (photographer) => {
   const modalTitle = document.querySelector(".modal__title");
   const firstName = photographer.name.split(' ')[0];
   modalTitle.textContent = `Contactez moi ${firstName}`;
@@ -131,22 +131,22 @@ const sortMedia = (medias, photographe) => {
   sortOptions.addEventListener("change", (e) => {
     e.preventDefault();
     if (e.target.value === "Popularité") {
-        console.log("popularity");
-        document.querySelector(".media").innerHTML = "";
-        medias.sort(OrderByLikes);
-        displayMediaData(medias, photographe);
+      console.log("popularity");
+      document.querySelector(".media").innerHTML = "";
+      medias.sort(OrderByLikes);
+      displayMediaData(medias, photographe);
     } else if (e.target.value === "Date") {
-        console.log("date");
-        document.querySelector(".media").innerHTML = "";
-        medias.sort(OrderByDate);
-        displayMediaData(medias, photographe);
+      console.log("date");
+      document.querySelector(".media").innerHTML = "";
+      medias.sort(OrderByDate);
+      displayMediaData(medias, photographe);
     } else if (e.target.value === "Titre") {
       console.log("title")
-        document.querySelector(".media").innerHTML = "";
-        medias.sort(OrderByTitle);
-        displayMediaData(medias, photographe);
+      document.querySelector(".media").innerHTML = "";
+      medias.sort(OrderByTitle);
+      displayMediaData(medias, photographe);
     }
-    else{
+    else {
       alert("erreur : l'option de tri n'existe pas")
     }
   })
@@ -159,14 +159,14 @@ const likeshandler = () => {
     let liked = false
     like.addEventListener("click", (e) => {
       e.preventDefault();
-      if(!liked) {
-        liked=true
+      if (!liked) {
+        liked = true
         totalLike++;
         const sumOfLikes = document.querySelector(".card__likes-value");
         sumOfLikes.textContent = parseInt(sumOfLikes.textContent) + 1;
         like.parentElement.querySelector(".media__count").textContent = parseInt(like.parentElement.querySelector(".media__count").textContent) + 1;
       } else {
-        liked=false;
+        liked = false;
         totalLike--;
         const sumOfLikes = document.querySelector(".card__likes-value");
         sumOfLikes.textContent = parseInt(sumOfLikes.textContent) - 1;
@@ -178,14 +178,14 @@ const likeshandler = () => {
     like.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
         e.preventDefault();
-        if(!liked) {
-          liked=true
+        if (!liked) {
+          liked = true
           totalLike++;
           const sumOfLikes = document.querySelector(".card__likes-value");
           sumOfLikes.textContent = parseInt(sumOfLikes.textContent) + 1;
           like.parentElement.querySelector(".media__count").textContent = parseInt(like.parentElement.querySelector(".media__count").textContent) + 1;
         } else {
-          liked=false;
+          liked = false;
           totalLike--;
           const sumOfLikes = document.querySelector(".card__likes-value");
           sumOfLikes.textContent = parseInt(sumOfLikes.textContent) - 1;
