@@ -3,14 +3,16 @@ import PhotographerModel from "../models/Photographer.js";
 
 async function getPhotographers() {
     let photographers = []
-    fetch("./data/photographers.json")
+    fetch("./data/photographers.json")// get data from JSON file
         .then(res => res.json())
         .then(data => {
             photographers = data.photographers;
         })
-        .then(() => {displayData(photographers)})
-        return {photographers}
+        .then(() => { displayData(photographers) })
+    return { photographers }
 }
+
+// display data in DOM
 async function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer");
     photographers.forEach((photographer) => {
@@ -21,8 +23,8 @@ async function displayData(photographers) {
     });
 };
 
+// INIT function
 async function init() {
-    // Récupère les datas des photographes
     const { photographers } = await getPhotographers();
     displayData(photographers)
 };

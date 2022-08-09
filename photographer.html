@@ -11,13 +11,13 @@
 
 <body class="body">
   <header class="navbar">
-    <a href="./index.html" aria-label="Retour à la page d'accueil Fisheye" tabindex="0">
-      <img src="assets/images/logo.png" class="logo" alt="fisheyes logo" />
+    <a href="./index.html" aria-label="liens vers la page d'accueil Fisheye" tabindex="0">
+      <img src="assets/images/logo.png" class="logo" alt="Logo du site fisheyes" />
     </a>
   </header>
   <!---------------------- INFO PHOTOGRAPHE ------------------------------------------------->
   <main id="main">
-    <section class="photograph-header">
+    <section class="photograph-header" role="photographe-info">
     </section>
     <!---------------------- TRI DES MEDIAS ------------------------------------------->
     <div class="media-sort" role="sort-media">
@@ -31,7 +31,7 @@
     <!---------------------- PHOTO SECTION ------------------------------------------->
     <section class="media">
     </section>
-    <section class="card" aria-label="photographer price and popularity" tabindex="0">
+    <section class="card" aria-label="prix et Popularité" tabindex="0">
       <p aria_label="nombre de like" class="card__likes">
         <span class="card__likes-value"></span>
         <i class="fa-solid fa-heart"></i>
@@ -48,22 +48,22 @@
       <form method="post">
         <!-- Prénom-->
         <label id="Prénom" class="modal__label" for="firstname">Prénom</label>
-        <span class="modal__error" id="firstname_error"></span>
+        <span aria-hidden="true" class="modal__error" id="firstname_error"></span>
         <input aria-describedby="Prénom" class="modal__input" type="text" id="firstname" name="firstname"
           placeholder="Votre Prénom" aria-required="true" required tabindex="0" autofocus>
         <!--Nom-->
         <label id="Nom" class="modal__label" for="lastname">Nom</label>
-        <span role="error-message" class="modal__error" id="lastname_error"></span>
+        <span aria-hidden="true" role="error-message" class="modal__error" id="lastname_error"></span>
         <input aria-describedby="Nom" class="modal__input" type="text" id="lastname" name="lastname"
           placeholder="Votre nom" aria-required="true" required tabindex="0">
         <!--Mail-->
         <label id="Email" class="modal__label" for="email">Email</label>
-        <span role="error-message" class="modal__error" id="email_error"></span>
+        <span aria-hidden="true" role="error-message" class="modal__error" id="email_error"></span>
         <input aria-describedby="Email" class="modal__input" type="email" id="email" name="email"
           placeholder="Votre email" aria-required="true" required tabindex="0">
         <!-- Message-->
         <label id="Message" class="modal__label" for="message">Message</label>
-        <span role="error-message" class="modal__error" id="message_error"></span>
+        <span aria-hidden="true" role="error-message" class="modal__error" id="message_error"></span>
         <textarea aria-describedby="Message" class="modal__text-area" id="message" name="message"
           placeholder="Votre message" aria-required="true" required tabindex="0"></textarea>
         <!-- Submit form-->
@@ -75,14 +75,13 @@
   <!---------------------- LIGHTBOX ------------------------------------------------>
   <div class="lightbox" aria-label="media close view" aria-hidden="true">
     <div class="lightbox__wrapper">
-      <button aria-label="previous-image" class="lightbox__prev" aria-label="previous image" onclick="prevImage()">
+      <button aria-label="previous-image" class="lightbox__prev" onclick="prevImage()">
         <img src="./assets/icons/chevron.svg" alt="previous button">
       </button>
-      <button aria-labal="next image" class="lightbox__next" aria-label="next image" onclick="nextImage()">
+      <button aria-labal="next image" class="lightbox__next" onclick="nextImage()">
         <img src="./assets/icons/chevron.svg" alt="next button">
       </button>
-      <button aria-label="close lightbox" class="lightbox__close" aria-label="close lightbox"
-        onclick="closeLightbox()">X</button>
+      <button aria-label="close lightbox" class="lightbox__close" onclick="closeLightbox()">X</button>
       <div class="lightbox__container">
       </div>
     </div>
