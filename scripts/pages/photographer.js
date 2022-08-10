@@ -3,16 +3,20 @@ import PhotographerModel from "../models/Photographer.js";
 import mediaFactory from '../factories/media.js';
 import Images from '../models/Images.js';
 import Video from '../models/Video.js';
-//import modal from '../template/modal.js';
+
 
 // initialisation du compteur de likes
 let totalLike = 0;
+
+//fichier jSON
 const fectURL = './data/photographers.json'
 
 //get photographer id with URL parameter
 function getPhotographerId() {
   return new URL(window.location.href).searchParams.get('id');
 }
+
+
 // fecth data from JSON file
 const getPhotographerData = async (id) => {
   let foundedPhotographer
@@ -54,7 +58,7 @@ const displayMediaData = (medias, photographe) => {
 
 
   medias.forEach((media) => {
-    // on vérifie le type de media reçu (image ou vidéo)
+    // on vérifie le type de media reçu (image ou vidéo) et on l'ajoute au DOM
 
     // si c'est une image
     if (media.image) {
@@ -74,6 +78,7 @@ const displayMediaData = (medias, photographe) => {
     }
   })
 
+  // une fois que les medias sont chargé on s'occupe de d'afficher le total de like et le tarif journalier du photographe
   const like = document.querySelector(".card__likes-value");
   like.textContent = totalLike;
   const price = document.querySelector(".card__price");
@@ -89,6 +94,8 @@ const displayModalData = (photographer) => {
 
 
 // sort(compare) functions
+
+// trie par Like (popularity)
 const OrderByLikes = (a, b) => {
   if (a.likes > b.likes) {
     return -1;
@@ -99,6 +106,7 @@ const OrderByLikes = (a, b) => {
   return 0;
 }
 
+// trie par date
 const OrderByDate = (a, b) => {
   if (a.date < b.date) {
     return -1;
@@ -109,6 +117,7 @@ const OrderByDate = (a, b) => {
   return 0;
 }
 
+// trie par ordre alphabetique (titre)
 const OrderByTitle = (a, b) => {
   if (a.title < b.title) {
     return -1;
@@ -119,40 +128,37 @@ const OrderByTitle = (a, b) => {
   return 0;
 }
 
+// 
 const sortMedia = (medias, photographe) => {
-  const popularity = document.getElementById("popularity");
-  const date = document.getElementById("date");
-  const title = document.getElementById("title");
-  const sortOptions = document.querySelector(".media-sort__select");
-  console.log(popularity)
-  console.log(date)
-  console.log(title)
 
+  // on vient ciblé l'élément HTML "select" qui servira de selecteur d'options de trie
+  const sortOptions = document.querySelector(".media-sort__select");
+
+  // j'utilise un écouteur d"évènement sur cet élément HTML afin d'appliquer les bonnes options de trie.
   sortOptions.addEventListener("change", (e) => {
     e.preventDefault();
     if (e.target.value === "Popularité") {
-      console.log("popularity");
-      document.querySelector(".media").innerHTML = "";
-      medias.sort(OrderByLikes);
-      displayMediaData(medias, photographe);
+
+      document.querySelector(".media").innerHTML = ""; // j'enlève les media du dom
+      medias.sort(OrderByLikes);// je trie mes media selon l'options de trie séléctionner par l'utilisateur
+      displayMediaData(medias, photographe);// on revois les media trier dans le DOM
     } else if (e.target.value === "Date") {
-      console.log("date");
-      document.querySelector(".media").innerHTML = "";
-      medias.sort(OrderByDate);
-      displayMediaData(medias, photographe);
+      document.querySelector(".media").innerHTML = ""; // j'enlève les media du dom
+      medias.sort(OrderByDate);// je trie mes media selon l'options de trie séléctionner par l'utilisateur
+      displayMediaData(medias, photographe);// on revois les media trier dans le DOM
     } else if (e.target.value === "Titre") {
-      console.log("title")
-      document.querySelector(".media").innerHTML = "";
-      medias.sort(OrderByTitle);
-      displayMediaData(medias, photographe);
+      document.querySelector(".media").innerHTML = ""; // j'enlève les media du dom
+      medias.sort(OrderByTitle);// je trie mes media selon l'options de trie séléctionner par l'utilisateur
+      displayMediaData(medias, photographe);// on revois les media trier dans le DOM
     }
     else {
-      alert("erreur : l'option de tri n'existe pas")
+      alert("erreur : l'option de tri n'existe pas") // en cas d'erreur on en informe l'utilisateur
     }
   })
 
 }
 
+// Fonction qui gère l'affichage et l'incrémentation du nombre de likes
 const likeshandler = () => {
   const likes = document.querySelectorAll(".media__like");
   likes.forEach((like) => {

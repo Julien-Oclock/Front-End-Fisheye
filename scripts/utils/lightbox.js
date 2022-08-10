@@ -8,7 +8,7 @@ const prevBtn = document.querySelector(".lightbox__prev");
 const closeBtn = document.querySelector(".lightbox__close");
 
 
-
+// affichage de la lightbox en cas de clic sur un media
 const displayLigthbox = (src, alt) => {
     header.setAttribute("aria-hidden", true);
     main.setAttribute("aria-hidden", true);
@@ -24,6 +24,7 @@ const displayLigthbox = (src, alt) => {
     }
 }
 
+// fermeture de la lightbox (click et clavier)
 const closeLightbox = () => {
     header.setAttribute("aria-hidden", false);
     main.setAttribute("aria-hidden", false);
@@ -32,6 +33,7 @@ const closeLightbox = () => {
     document.getElementById("contact").focus();
 }
 
+// ouverture de la lightbox
 const openLightbox = (e) => {
     const src = e.target.getAttribute("src");
     const alt = e.target.getAttribute("alt");
@@ -39,6 +41,8 @@ const openLightbox = (e) => {
     displayLigthbox(src, alt);
 }
 
+
+// passer à l'image suivant (lightbox ouverte) avec un clic de l'utilisteur ou avec la navigation clavier (=>)
 const nextImage = () => {
     const currentImage = document.querySelector(".lightbox__container img") || document.querySelector(".lightbox__container video");
     const currentImageSrc = currentImage.getAttribute("src");
@@ -63,6 +67,7 @@ const nextImage = () => {
     displayLigthbox(images[imageIndex].getAttribute("src"), images[imageIndex].getAttribute("alt"));
 }
 
+// passer à l'image précédente (lightbox ouverte) avec un clic de l'utilisteur ou avec la navigation clavier (<=)
 const prevImage = () => {
     const currentImage = document.querySelector(".lightbox__container img") || document.querySelector(".lightbox__container video");
     const currentImageSrc = currentImage.getAttribute("src");
@@ -116,7 +121,6 @@ window.addEventListener("keydown", (e) => {
             case "Escape":
                 closeLightbox();
                 break;
-
             default:
                 return;
         }
