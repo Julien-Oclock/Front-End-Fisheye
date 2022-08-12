@@ -12,7 +12,7 @@ export default function photo(data, photographe) {
                 <span class="media__title">${data._title}</span>
                 <span class="media__likes">
                     ${data.likes}
-                    <i class="fa-solid fa-heart"></i>
+                    <i class="fa-solid fa-heart" aria-label="Icon de like"</i>
                 </span>
             </div>
         </div>
